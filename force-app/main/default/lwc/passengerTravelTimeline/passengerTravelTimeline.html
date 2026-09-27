@@ -1,0 +1,71 @@
+<template>
+    <lightning-card
+        title="Passenger Travel Timeline"
+        icon-name="standard:contact">
+
+        <div class="slds-p-around_medium">
+
+            <lightning-input
+                type="text"
+                label="Passenger ID"
+                placeholder="Enter Passenger Record Id"
+                value={passengerId}
+                onchange={handlePassengerIdChange}>
+            </lightning-input>
+
+            <template if:true={hasBookings}>
+
+                <div class="timeline slds-m-top_large">
+
+                    <template
+                        for:each={timelineBookings}
+                        for:item="booking">
+
+                        <div
+                            key={booking.id}
+                            class="timeline-item">
+
+                            <div class="timeline-marker"></div>
+
+                            <div class="timeline-content">
+
+                                <h3>
+                                    {booking.flightNumber}
+                                </h3>
+
+                                <p>
+                                    {booking.route}
+                                </p>
+
+                                <p>
+                                    Seat: {booking.seatNumber}
+                                </p>
+
+                                <p>
+                                    Booking Status: {booking.bookingStatus}
+                                </p>
+
+                                <p>
+                                    Travel Date: {booking.travelDate}
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </template>
+
+                </div>
+
+            </template>
+
+            <template if:false={hasBookings}>
+                <div class="empty-state slds-m-top_large">
+                    Enter a Passenger ID to view the travel timeline.
+                </div>
+            </template>
+
+        </div>
+
+    </lightning-card>
+</template>

@@ -1,0 +1,15 @@
+{
+  "required" : [ "bookingNumber" ],
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "bookingNumber" : {
+      "title" : "bookingNumber",
+      "description" : "The booking number for the booking whose payment should be processed.",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    }
+  },
+  "lightning:type" : "lightning__objectType",
+  "lightning:textIndexed" : true
+}

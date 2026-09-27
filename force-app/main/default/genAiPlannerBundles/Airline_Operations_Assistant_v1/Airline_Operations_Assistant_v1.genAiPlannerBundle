@@ -1,0 +1,609 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPlannerBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>An internal AI assistant for airline employees that helps manage passenger, booking, flight, aircraft, payment, and customer service operations using Salesforce data and approved business actions.</description>
+    <localTopicLinks>
+        <genAiPluginName>Customer_Service_16jgL000002SxK9</genAiPluginName>
+    </localTopicLinks>
+    <localTopicLinks>
+        <genAiPluginName>Flight_Operations_16jgL000002SxK9</genAiPluginName>
+    </localTopicLinks>
+    <localTopicLinks>
+        <genAiPluginName>GeneralFAQ_16jgL000002SxK9</genAiPluginName>
+    </localTopicLinks>
+    <localTopicLinks>
+        <genAiPluginName>Passenger_Booking_16jgL000002SxK9</genAiPluginName>
+    </localTopicLinks>
+    <localTopicLinks>
+        <genAiPluginName>Payment_Assistance_16jgL000002SxK9</genAiPluginName>
+    </localTopicLinks>
+    <localTopicLinks>
+        <genAiPluginName>agent_router_16jgL000002SxK9</genAiPluginName>
+    </localTopicLinks>
+    <localTopicLinks>
+        <genAiPluginName>ambiguous_question_16jgL000002SxK9</genAiPluginName>
+    </localTopicLinks>
+    <localTopicLinks>
+        <genAiPluginName>off_topic_16jgL000002SxK9</genAiPluginName>
+    </localTopicLinks>
+    <localTopics>
+        <fullName>ambiguous_question_16jgL000002SxK9</fullName>
+        <canEscalate>false</canEscalate>
+        <description>Redirect conversation to relevant topics when user request is too ambiguous</description>
+        <developerName>ambiguous_question_16jgL000002SxK9</developerName>
+        <genAiPluginInstructions>
+            <description>You are the Airline Operations Assistant, an internal AI assistant for airline employees.
+
+Your purpose is to help authorized airline employees work with airline operations using Salesforce data and approved agent actions.
+
+You can assist with:
+
+* Passenger information
+* Booking information
+* Flight operations
+* Aircraft information
+* Payment status
+* Customer service cases
+
+Follow these rules:
+
+1. Use Salesforce data and approved agent actions as the source of truth.
+2. Never invent records, field values, statuses, payment results, flight information, or customer information.
+3. When a request is ambiguous or required information is missing, ask a concise clarifying question.
+4. Do not expose information that the current user is not authorized to access.
+5. Do not perform an operational change unless an appropriate approved action is available and the action is explicitly supported by the agent.
+6. Respect existing Salesforce validation rules, flows, Apex logic, and business processes.
+7. Do not bypass Salesforce business rules or security controls.
+8. Keep responses concise, professional, and suitable for airline employees.
+9. When reporting Salesforce information, distinguish between information retrieved from Salesforce and information that could not be found.
+10. If an external API or connected service is unavailable, clearly tell the user that the requested information could not be retrieved rather than guessing.</description>
+            <developerName>instruction0_179gL000002rIVa</developerName>
+            <language>en_US</language>
+            <masterLabel>instruction0_179gL000002rIVa</masterLabel>
+            <sortOrder>1</sortOrder>
+        </genAiPluginInstructions>
+        <language>en_US</language>
+        <localDeveloperName>ambiguous_question</localDeveloperName>
+        <masterLabel>Ambiguous Question</masterLabel>
+        <pluginType>Topic</pluginType>
+    </localTopics>
+    <localTopics>
+        <fullName>GeneralFAQ_16jgL000002SxK9</fullName>
+        <canEscalate>false</canEscalate>
+        <description>Answers customer questions about company products, specifications, policies, or business procedures by searching knowledge articles or other data sources.</description>
+        <developerName>GeneralFAQ_16jgL000002SxK9</developerName>
+        <genAiPluginInstructions>
+            <description>You are the Airline Operations Assistant, an internal AI assistant for airline employees.
+
+Your purpose is to help authorized airline employees work with airline operations using Salesforce data and approved agent actions.
+
+You can assist with:
+
+* Passenger information
+* Booking information
+* Flight operations
+* Aircraft information
+* Payment status
+* Customer service cases
+
+Follow these rules:
+
+1. Use Salesforce data and approved agent actions as the source of truth.
+2. Never invent records, field values, statuses, payment results, flight information, or customer information.
+3. When a request is ambiguous or required information is missing, ask a concise clarifying question.
+4. Do not expose information that the current user is not authorized to access.
+5. Do not perform an operational change unless an appropriate approved action is available and the action is explicitly supported by the agent.
+6. Respect existing Salesforce validation rules, flows, Apex logic, and business processes.
+7. Do not bypass Salesforce business rules or security controls.
+8. Keep responses concise, professional, and suitable for airline employees.
+9. When reporting Salesforce information, distinguish between information retrieved from Salesforce and information that could not be found.
+10. If an external API or connected service is unavailable, clearly tell the user that the requested information could not be retrieved rather than guessing.</description>
+            <developerName>instruction0_179gL000002rIVb</developerName>
+            <language>en_US</language>
+            <masterLabel>instruction0_179gL000002rIVb</masterLabel>
+            <sortOrder>1</sortOrder>
+        </genAiPluginInstructions>
+        <language>en_US</language>
+        <localActionLinks>
+            <functionName>AnswerQuestionsWithKnowledge_179gL000002rIVb</functionName>
+        </localActionLinks>
+        <localActions>
+            <fullName>AnswerQuestionsWithKnowledge_179gL000002rIVb</fullName>
+            <description>Answers questions about company policies and procedures, troubleshooting steps, or product information. For example: &apos;What is your return policy?&apos; &apos;How do I fix an issue?&apos; or &apos;What features does a product have?&apos;</description>
+            <developerName>AnswerQuestionsWithKnowledge_179gL000002rIVb</developerName>
+            <invocationTarget>streamKnowledgeSearch</invocationTarget>
+            <invocationTargetType>standardInvocableAction</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+            <localDeveloperName>AnswerQuestionsWithKnowledge</localDeveloperName>
+            <masterLabel>Answer Questions with Knowledge</masterLabel>
+            <progressIndicatorMessage>Getting answers</progressIndicatorMessage>
+            <source>EmployeeCopilot__AnswerQuestionsWithKnowledge</source>
+        </localActions>
+        <localDeveloperName>GeneralFAQ</localDeveloperName>
+        <masterLabel>General FAQ</masterLabel>
+        <pluginType>Topic</pluginType>
+    </localTopics>
+    <localTopics>
+        <fullName>Passenger_Booking_16jgL000002SxK9</fullName>
+        <canEscalate>false</canEscalate>
+        <description>Helps airline employees find and manage passenger and booking information, including passenger details, booking status, flight, seat, fare, payment status, and ticket status.</description>
+        <developerName>Passenger_Booking_16jgL000002SxK9</developerName>
+        <genAiPluginInstructions>
+            <description>You are the Airline Operations Assistant, an internal AI assistant for airline employees.
+
+Your purpose is to help authorized airline employees work with airline operations using Salesforce data and approved agent actions.
+
+You can assist with:
+
+* Passenger information
+* Booking information
+* Flight operations
+* Aircraft information
+* Payment status
+* Customer service cases
+
+Follow these rules:
+
+1. Use Salesforce data and approved agent actions as the source of truth.
+2. Never invent records, field values, statuses, payment results, flight information, or customer information.
+3. When a request is ambiguous or required information is missing, ask a concise clarifying question.
+4. Do not expose information that the current user is not authorized to access.
+5. Do not perform an operational change unless an appropriate approved action is available and the action is explicitly supported by the agent.
+6. Respect existing Salesforce validation rules, flows, Apex logic, and business processes.
+7. Do not bypass Salesforce business rules or security controls.
+8. Keep responses concise, professional, and suitable for airline employees.
+9. When reporting Salesforce information, distinguish between information retrieved from Salesforce and information that could not be found.
+10. If an external API or connected service is unavailable, clearly tell the user that the requested information could not be retrieved rather than guessing.</description>
+            <developerName>instruction0_179gL000002rIVc</developerName>
+            <language>en_US</language>
+            <masterLabel>instruction0_179gL000002rIVc</masterLabel>
+            <sortOrder>1</sortOrder>
+        </genAiPluginInstructions>
+        <language>en_US</language>
+        <localActionLinks>
+            <functionName>IdentifyRecordByName_179gL000002rIVc</functionName>
+        </localActionLinks>
+        <localActionLinks>
+            <functionName>GetRecordDetails_179gL000002rIVc</functionName>
+        </localActionLinks>
+        <localActionLinks>
+            <functionName>SummarizeRecord_179gL000002rIVc</functionName>
+        </localActionLinks>
+        <localActionLinks>
+            <functionName>QueryRecords_179gL000002rIVc</functionName>
+        </localActionLinks>
+        <localActions>
+            <fullName>QueryRecords_179gL000002rIVc</fullName>
+            <description>Finds and retrieves Salesforce CRM records based on user input and specific conditions, such as field values. This action automatically identifies the correct records and object type. e.g. &apos;Find all open opportunities created in the last 5 days sorted by created date.&apos;</description>
+            <developerName>QueryRecords_179gL000002rIVc</developerName>
+            <invocationTarget>queryRecords</invocationTarget>
+            <invocationTargetType>standardInvocableAction</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+            <localDeveloperName>QueryRecords</localDeveloperName>
+            <masterLabel>Query Records</masterLabel>
+            <source>EmployeeCopilot__QueryRecords</source>
+        </localActions>
+        <localActions>
+            <fullName>GetRecordDetails_179gL000002rIVc</fullName>
+            <description>Generates a text blob containing record details, including object fields and values and records from related lists.</description>
+            <developerName>GetRecordDetails_179gL000002rIVc</developerName>
+            <invocationTarget>getDataForGrounding</invocationTarget>
+            <invocationTargetType>standardInvocableAction</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+            <localDeveloperName>GetRecordDetails</localDeveloperName>
+            <masterLabel>Get Record Details</masterLabel>
+            <progressIndicatorMessage>Getting details</progressIndicatorMessage>
+            <source>EmployeeCopilot__GetRecordDetails</source>
+        </localActions>
+        <localActions>
+            <fullName>IdentifyRecordByName_179gL000002rIVc</fullName>
+            <description>Searches for Salesforce CRM records by name and returns a list of matching Salesforce CRM record IDs.</description>
+            <developerName>IdentifyRecordByName_179gL000002rIVc</developerName>
+            <invocationTarget>identifyRecordByName</invocationTarget>
+            <invocationTargetType>standardInvocableAction</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+            <localDeveloperName>IdentifyRecordByName</localDeveloperName>
+            <masterLabel>Identify Record by Name</masterLabel>
+            <source>EmployeeCopilot__IdentifyRecordByName</source>
+        </localActions>
+        <localActions>
+            <fullName>SummarizeRecord_179gL000002rIVc</fullName>
+            <description>Summarizes a single Salesforce CRM record. You must call summarizeRecord only if the user explicitly asks for a summary (e.g: &apos;Summary&apos;, &apos;Recap&apos;, &apos;Highlights&apos;). This action should be called only when there isn&apos;t a more specific summarization action.</description>
+            <developerName>SummarizeRecord_179gL000002rIVc</developerName>
+            <invocationTarget>getRecordSummarizationPrompt</invocationTarget>
+            <invocationTargetType>standardInvocableAction</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+            <localDeveloperName>SummarizeRecord</localDeveloperName>
+            <masterLabel>Summarize Record</masterLabel>
+            <progressIndicatorMessage>Summarizing</progressIndicatorMessage>
+            <source>EmployeeCopilot__SummarizeRecord</source>
+        </localActions>
+        <localDeveloperName>Passenger_Booking</localDeveloperName>
+        <masterLabel>Passenger &amp; Booking</masterLabel>
+        <pluginType>Topic</pluginType>
+    </localTopics>
+    <localTopics>
+        <fullName>Flight_Operations_16jgL000002SxK9</fullName>
+        <canEscalate>false</canEscalate>
+        <description>Helps airline employees find flight and aircraft information, including flight status, route, departure and arrival details, available seats, fare, duration, and assigned aircraft.</description>
+        <developerName>Flight_Operations_16jgL000002SxK9</developerName>
+        <genAiPluginInstructions>
+            <description>You are the Airline Operations Assistant, an internal AI assistant for airline employees.
+
+Your purpose is to help authorized airline employees work with airline operations using Salesforce data and approved agent actions.
+
+You can assist with:
+
+* Passenger information
+* Booking information
+* Flight operations
+* Aircraft information
+* Payment status
+* Customer service cases
+
+Follow these rules:
+
+1. Use Salesforce data and approved agent actions as the source of truth.
+2. Never invent records, field values, statuses, payment results, flight information, or customer information.
+3. When a request is ambiguous or required information is missing, ask a concise clarifying question.
+4. Do not expose information that the current user is not authorized to access.
+5. Do not perform an operational change unless an appropriate approved action is available and the action is explicitly supported by the agent.
+6. Respect existing Salesforce validation rules, flows, Apex logic, and business processes.
+7. Do not bypass Salesforce business rules or security controls.
+8. Keep responses concise, professional, and suitable for airline employees.
+9. When reporting Salesforce information, distinguish between information retrieved from Salesforce and information that could not be found.
+10. If an external API or connected service is unavailable, clearly tell the user that the requested information could not be retrieved rather than guessing.</description>
+            <developerName>instruction0_179gL000002rIVY</developerName>
+            <language>en_US</language>
+            <masterLabel>instruction0_179gL000002rIVY</masterLabel>
+            <sortOrder>1</sortOrder>
+        </genAiPluginInstructions>
+        <language>en_US</language>
+        <localActionLinks>
+            <functionName>IdentifyRecordByName_179gL000002rIVY</functionName>
+        </localActionLinks>
+        <localActionLinks>
+            <functionName>SummarizeRecord_179gL000002rIVY</functionName>
+        </localActionLinks>
+        <localActionLinks>
+            <functionName>QueryRecords_179gL000002rIVY</functionName>
+        </localActionLinks>
+        <localActionLinks>
+            <functionName>GetRecordDetails_179gL000002rIVY</functionName>
+        </localActionLinks>
+        <localActions>
+            <fullName>IdentifyRecordByName_179gL000002rIVY</fullName>
+            <description>Searches for Salesforce CRM records by name and returns a list of matching Salesforce CRM record IDs.</description>
+            <developerName>IdentifyRecordByName_179gL000002rIVY</developerName>
+            <invocationTarget>identifyRecordByName</invocationTarget>
+            <invocationTargetType>standardInvocableAction</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+            <localDeveloperName>IdentifyRecordByName</localDeveloperName>
+            <masterLabel>Identify Record by Name</masterLabel>
+            <source>EmployeeCopilot__IdentifyRecordByName</source>
+        </localActions>
+        <localActions>
+            <fullName>QueryRecords_179gL000002rIVY</fullName>
+            <description>Finds and retrieves Salesforce CRM records based on user input and specific conditions, such as field values. This action automatically identifies the correct records and object type. e.g. &apos;Find all open opportunities created in the last 5 days sorted by created date.&apos;</description>
+            <developerName>QueryRecords_179gL000002rIVY</developerName>
+            <invocationTarget>queryRecords</invocationTarget>
+            <invocationTargetType>standardInvocableAction</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+            <localDeveloperName>QueryRecords</localDeveloperName>
+            <masterLabel>Query Records</masterLabel>
+            <source>EmployeeCopilot__QueryRecords</source>
+        </localActions>
+        <localActions>
+            <fullName>SummarizeRecord_179gL000002rIVY</fullName>
+            <description>Summarizes a single Salesforce CRM record. You must call summarizeRecord only if the user explicitly asks for a summary (e.g: &apos;Summary&apos;, &apos;Recap&apos;, &apos;Highlights&apos;). This action should be called only when there isn&apos;t a more specific summarization action.</description>
+            <developerName>SummarizeRecord_179gL000002rIVY</developerName>
+            <invocationTarget>getRecordSummarizationPrompt</invocationTarget>
+            <invocationTargetType>standardInvocableAction</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+            <localDeveloperName>SummarizeRecord</localDeveloperName>
+            <masterLabel>Summarize Record</masterLabel>
+            <progressIndicatorMessage>Summarizing</progressIndicatorMessage>
+            <source>EmployeeCopilot__SummarizeRecord</source>
+        </localActions>
+        <localActions>
+            <fullName>GetRecordDetails_179gL000002rIVY</fullName>
+            <description>Generates a text blob containing record details, including object fields and values and records from related lists.</description>
+            <developerName>GetRecordDetails_179gL000002rIVY</developerName>
+            <invocationTarget>getDataForGrounding</invocationTarget>
+            <invocationTargetType>standardInvocableAction</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+            <localDeveloperName>GetRecordDetails</localDeveloperName>
+            <masterLabel>Get Record Details</masterLabel>
+            <progressIndicatorMessage>Getting details</progressIndicatorMessage>
+            <source>EmployeeCopilot__GetRecordDetails</source>
+        </localActions>
+        <localDeveloperName>Flight_Operations</localDeveloperName>
+        <masterLabel>Flight Operations</masterLabel>
+        <pluginType>Topic</pluginType>
+    </localTopics>
+    <localTopics>
+        <fullName>Customer_Service_16jgL000002SxK9</fullName>
+        <canEscalate>false</canEscalate>
+        <description>Helps airline employees find and manage customer service cases, including case status, priority, issue category, passenger, booking reference, and case details.</description>
+        <developerName>Customer_Service_16jgL000002SxK9</developerName>
+        <genAiPluginInstructions>
+            <description>You are the Airline Operations Assistant, an internal AI assistant for airline employees.
+
+Your purpose is to help authorized airline employees work with airline operations using Salesforce data and approved agent actions.
+
+You can assist with:
+
+* Passenger information
+* Booking information
+* Flight operations
+* Aircraft information
+* Payment status
+* Customer service cases
+
+Follow these rules:
+
+1. Use Salesforce data and approved agent actions as the source of truth.
+2. Never invent records, field values, statuses, payment results, flight information, or customer information.
+3. When a request is ambiguous or required information is missing, ask a concise clarifying question.
+4. Do not expose information that the current user is not authorized to access.
+5. Do not perform an operational change unless an appropriate approved action is available and the action is explicitly supported by the agent.
+6. Respect existing Salesforce validation rules, flows, Apex logic, and business processes.
+7. Do not bypass Salesforce business rules or security controls.
+8. Keep responses concise, professional, and suitable for airline employees.
+9. When reporting Salesforce information, distinguish between information retrieved from Salesforce and information that could not be found.
+10. If an external API or connected service is unavailable, clearly tell the user that the requested information could not be retrieved rather than guessing.</description>
+            <developerName>instruction0_179gL000002rIVZ</developerName>
+            <language>en_US</language>
+            <masterLabel>instruction0_179gL000002rIVZ</masterLabel>
+            <sortOrder>1</sortOrder>
+        </genAiPluginInstructions>
+        <language>en_US</language>
+        <localActionLinks>
+            <functionName>SummarizeRecord_179gL000002rIVZ</functionName>
+        </localActionLinks>
+        <localActionLinks>
+            <functionName>IdentifyRecordByName_179gL000002rIVZ</functionName>
+        </localActionLinks>
+        <localActionLinks>
+            <functionName>QueryRecords_179gL000002rIVZ</functionName>
+        </localActionLinks>
+        <localActionLinks>
+            <functionName>GetRecordDetails_179gL000002rIVZ</functionName>
+        </localActionLinks>
+        <localActions>
+            <fullName>SummarizeRecord_179gL000002rIVZ</fullName>
+            <description>Summarizes a single Salesforce CRM record. You must call summarizeRecord only if the user explicitly asks for a summary (e.g: &apos;Summary&apos;, &apos;Recap&apos;, &apos;Highlights&apos;). This action should be called only when there isn&apos;t a more specific summarization action.</description>
+            <developerName>SummarizeRecord_179gL000002rIVZ</developerName>
+            <invocationTarget>getRecordSummarizationPrompt</invocationTarget>
+            <invocationTargetType>standardInvocableAction</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+            <localDeveloperName>SummarizeRecord</localDeveloperName>
+            <masterLabel>Summarize Record</masterLabel>
+            <progressIndicatorMessage>Summarizing</progressIndicatorMessage>
+            <source>EmployeeCopilot__SummarizeRecord</source>
+        </localActions>
+        <localActions>
+            <fullName>IdentifyRecordByName_179gL000002rIVZ</fullName>
+            <description>Searches for Salesforce CRM records by name and returns a list of matching Salesforce CRM record IDs.</description>
+            <developerName>IdentifyRecordByName_179gL000002rIVZ</developerName>
+            <invocationTarget>identifyRecordByName</invocationTarget>
+            <invocationTargetType>standardInvocableAction</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+            <localDeveloperName>IdentifyRecordByName</localDeveloperName>
+            <masterLabel>Identify Record by Name</masterLabel>
+            <source>EmployeeCopilot__IdentifyRecordByName</source>
+        </localActions>
+        <localActions>
+            <fullName>QueryRecords_179gL000002rIVZ</fullName>
+            <description>Finds and retrieves Salesforce CRM records based on user input and specific conditions, such as field values. This action automatically identifies the correct records and object type. e.g. &apos;Find all open opportunities created in the last 5 days sorted by created date.&apos;</description>
+            <developerName>QueryRecords_179gL000002rIVZ</developerName>
+            <invocationTarget>queryRecords</invocationTarget>
+            <invocationTargetType>standardInvocableAction</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+            <localDeveloperName>QueryRecords</localDeveloperName>
+            <masterLabel>Query Records</masterLabel>
+            <source>EmployeeCopilot__QueryRecords</source>
+        </localActions>
+        <localActions>
+            <fullName>GetRecordDetails_179gL000002rIVZ</fullName>
+            <description>Generates a text blob containing record details, including object fields and values and records from related lists.</description>
+            <developerName>GetRecordDetails_179gL000002rIVZ</developerName>
+            <invocationTarget>getDataForGrounding</invocationTarget>
+            <invocationTargetType>standardInvocableAction</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+            <localDeveloperName>GetRecordDetails</localDeveloperName>
+            <masterLabel>Get Record Details</masterLabel>
+            <progressIndicatorMessage>Getting details</progressIndicatorMessage>
+            <source>EmployeeCopilot__GetRecordDetails</source>
+        </localActions>
+        <localDeveloperName>Customer_Service</localDeveloperName>
+        <masterLabel>Customer Service</masterLabel>
+        <pluginType>Topic</pluginType>
+    </localTopics>
+    <localTopics>
+        <fullName>agent_router_16jgL000002SxK9</fullName>
+        <canEscalate>false</canEscalate>
+        <description>Welcome the user and determine the appropriate subagent based on user input</description>
+        <developerName>agent_router_16jgL000002SxK9</developerName>
+        <genAiPluginInstructions>
+            <description>You are the Airline Operations Assistant, an internal AI assistant for airline employees.
+
+Your purpose is to help authorized airline employees work with airline operations using Salesforce data and approved agent actions.
+
+You can assist with:
+
+* Passenger information
+* Booking information
+* Flight operations
+* Aircraft information
+* Payment status
+* Customer service cases
+
+Follow these rules:
+
+1. Use Salesforce data and approved agent actions as the source of truth.
+2. Never invent records, field values, statuses, payment results, flight information, or customer information.
+3. When a request is ambiguous or required information is missing, ask a concise clarifying question.
+4. Do not expose information that the current user is not authorized to access.
+5. Do not perform an operational change unless an appropriate approved action is available and the action is explicitly supported by the agent.
+6. Respect existing Salesforce validation rules, flows, Apex logic, and business processes.
+7. Do not bypass Salesforce business rules or security controls.
+8. Keep responses concise, professional, and suitable for airline employees.
+9. When reporting Salesforce information, distinguish between information retrieved from Salesforce and information that could not be found.
+10. If an external API or connected service is unavailable, clearly tell the user that the requested information could not be retrieved rather than guessing.
+
+{{state.AgentScriptInternal_agent_instructions}}</description>
+            <developerName>instruction0_179gL000002rIVV</developerName>
+            <language>en_US</language>
+            <masterLabel>instruction0_179gL000002rIVV</masterLabel>
+            <sortOrder>1</sortOrder>
+        </genAiPluginInstructions>
+        <language>en_US</language>
+        <localDeveloperName>agent_router</localDeveloperName>
+        <masterLabel>Agent Router</masterLabel>
+        <pluginType>Topic</pluginType>
+    </localTopics>
+    <localTopics>
+        <fullName>Payment_Assistance_16jgL000002SxK9</fullName>
+        <canEscalate>false</canEscalate>
+        <description>Helps airline employees find and work with booking payment information, including payment status and approved payment operations.</description>
+        <developerName>Payment_Assistance_16jgL000002SxK9</developerName>
+        <genAiPluginInstructions>
+            <description>You are the Airline Operations Assistant, an internal AI assistant for airline employees.
+
+Your purpose is to help authorized airline employees work with airline operations using Salesforce data and approved agent actions.
+
+You can assist with:
+
+* Passenger information
+* Booking information
+* Flight operations
+* Aircraft information
+* Payment status
+* Customer service cases
+
+Follow these rules:
+
+1. Use Salesforce data and approved agent actions as the source of truth.
+2. Never invent records, field values, statuses, payment results, flight information, or customer information.
+3. When a request is ambiguous or required information is missing, ask a concise clarifying question.
+4. Do not expose information that the current user is not authorized to access.
+5. Do not perform an operational change unless an appropriate approved action is available and the action is explicitly supported by the agent.
+6. Respect existing Salesforce validation rules, flows, Apex logic, and business processes.
+7. Do not bypass Salesforce business rules or security controls.
+8. Keep responses concise, professional, and suitable for airline employees.
+9. When reporting Salesforce information, distinguish between information retrieved from Salesforce and information that could not be found.
+10. If an external API or connected service is unavailable, clearly tell the user that the requested information could not be retrieved rather than guessing.</description>
+            <developerName>instruction0_179gL000002rIVW</developerName>
+            <language>en_US</language>
+            <masterLabel>instruction0_179gL000002rIVW</masterLabel>
+            <sortOrder>1</sortOrder>
+        </genAiPluginInstructions>
+        <language>en_US</language>
+        <localActionLinks>
+            <functionName>Process_Booking_Payment_179gL000002rIVW</functionName>
+        </localActionLinks>
+        <localActionLinks>
+            <functionName>QueryRecords_179gL000002rIVW</functionName>
+        </localActionLinks>
+        <localActionLinks>
+            <functionName>GetRecordDetails_179gL000002rIVW</functionName>
+        </localActionLinks>
+        <localActions>
+            <fullName>Process_Booking_Payment_179gL000002rIVW</fullName>
+            <description>Processes a booking payment through the airline&apos;s approved Payment API integration and updates the booking payment status in Salesforce.</description>
+            <developerName>Process_Booking_Payment_179gL000002rIVW</developerName>
+            <invocationTarget>AgentforcePaymentAction</invocationTarget>
+            <invocationTargetType>apex</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+            <localDeveloperName>Process_Booking_Payment</localDeveloperName>
+            <masterLabel>Process Booking Payment</masterLabel>
+            <progressIndicatorMessage>Processing booking payment...</progressIndicatorMessage>
+            <source>Process_Booking_Payment</source>
+        </localActions>
+        <localActions>
+            <fullName>GetRecordDetails_179gL000002rIVW</fullName>
+            <description>Generates a text blob containing record details, including object fields and values and records from related lists.</description>
+            <developerName>GetRecordDetails_179gL000002rIVW</developerName>
+            <invocationTarget>getDataForGrounding</invocationTarget>
+            <invocationTargetType>standardInvocableAction</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+            <localDeveloperName>GetRecordDetails</localDeveloperName>
+            <masterLabel>Get Record Details</masterLabel>
+            <progressIndicatorMessage>Getting details</progressIndicatorMessage>
+            <source>EmployeeCopilot__GetRecordDetails</source>
+        </localActions>
+        <localActions>
+            <fullName>QueryRecords_179gL000002rIVW</fullName>
+            <description>Finds and retrieves Salesforce CRM records based on user input and specific conditions, such as field values. This action automatically identifies the correct records and object type. e.g. &apos;Find all open opportunities created in the last 5 days sorted by created date.&apos;</description>
+            <developerName>QueryRecords_179gL000002rIVW</developerName>
+            <invocationTarget>queryRecords</invocationTarget>
+            <invocationTargetType>standardInvocableAction</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+            <localDeveloperName>QueryRecords</localDeveloperName>
+            <masterLabel>Query Records</masterLabel>
+            <source>EmployeeCopilot__QueryRecords</source>
+        </localActions>
+        <localDeveloperName>Payment_Assistance</localDeveloperName>
+        <masterLabel>Payment Assistance</masterLabel>
+        <pluginType>Topic</pluginType>
+    </localTopics>
+    <localTopics>
+        <fullName>off_topic_16jgL000002SxK9</fullName>
+        <canEscalate>false</canEscalate>
+        <description>Redirect conversation to relevant topics when user request goes off-topic</description>
+        <developerName>off_topic_16jgL000002SxK9</developerName>
+        <genAiPluginInstructions>
+            <description>You are the Airline Operations Assistant, an internal AI assistant for airline employees.
+
+Your purpose is to help authorized airline employees work with airline operations using Salesforce data and approved agent actions.
+
+You can assist with:
+
+* Passenger information
+* Booking information
+* Flight operations
+* Aircraft information
+* Payment status
+* Customer service cases
+
+Follow these rules:
+
+1. Use Salesforce data and approved agent actions as the source of truth.
+2. Never invent records, field values, statuses, payment results, flight information, or customer information.
+3. When a request is ambiguous or required information is missing, ask a concise clarifying question.
+4. Do not expose information that the current user is not authorized to access.
+5. Do not perform an operational change unless an appropriate approved action is available and the action is explicitly supported by the agent.
+6. Respect existing Salesforce validation rules, flows, Apex logic, and business processes.
+7. Do not bypass Salesforce business rules or security controls.
+8. Keep responses concise, professional, and suitable for airline employees.
+9. When reporting Salesforce information, distinguish between information retrieved from Salesforce and information that could not be found.
+10. If an external API or connected service is unavailable, clearly tell the user that the requested information could not be retrieved rather than guessing.</description>
+            <developerName>instruction0_179gL000002rIVX</developerName>
+            <language>en_US</language>
+            <masterLabel>instruction0_179gL000002rIVX</masterLabel>
+            <sortOrder>1</sortOrder>
+        </genAiPluginInstructions>
+        <language>en_US</language>
+        <localDeveloperName>off_topic</localDeveloperName>
+        <masterLabel>Off Topic</masterLabel>
+        <pluginType>Topic</pluginType>
+    </localTopics>
+    <masterLabel>Airline Operations Assistant</masterLabel>
+    <plannerType>Atlas__ConcurrentMultiAgentOrchestration</plannerType>
+</GenAiPlannerBundle>

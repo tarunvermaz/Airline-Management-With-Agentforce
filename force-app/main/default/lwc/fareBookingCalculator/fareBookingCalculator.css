@@ -1,0 +1,22 @@
+.fare-summary {
+    padding: 16px;
+    border: 1px solid #d8dde6;
+    border-radius: 8px;
+    background: #f8f9fb;
+}
+
+.fare-summary p {
+    margin: 8px 0;
+    font-size: 15px;
+}
+
+.fare-summary hr {
+    border: 0;
+    border-top: 1px solid #d8dde6;
+    margin: 16px 0;
+}
+
+.fare-summary .total {
+    font-size: 18px;
+    font-weight: 700;
+}

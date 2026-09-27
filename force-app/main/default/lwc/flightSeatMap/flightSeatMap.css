@@ -1,0 +1,34 @@
+.seat-map {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    max-width: 360px;
+    margin: 20px auto;
+}
+
+.seat {
+    padding: 12px;
+    border-radius: 6px;
+    border: 1px solid #d8dde6;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.seat.available {
+    background: #e8f5e9;
+}
+
+.seat.occupied {
+    background: #f4f4f4;
+    color: #999;
+    cursor: not-allowed;
+}
+
+.seat.available:hover {
+    transform: scale(1.05);
+}
+.seat.selected {
+    border: 3px solid #0176d3;
+    font-weight: 700;
+    transform: scale(1.05);
+}

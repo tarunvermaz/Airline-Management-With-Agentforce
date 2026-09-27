@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiFunction xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Processes a booking payment through the airline&apos;s approved Payment API integration and updates the booking payment status in Salesforce.</description>
+    <developerName>Process_Booking_Payment</developerName>
+    <invocationTarget>AgentforcePaymentAction</invocationTarget>
+    <invocationTargetType>apex</invocationTargetType>
+    <isConfirmationRequired>false</isConfirmationRequired>
+    <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+    <localDeveloperName>Process_Booking_Payment</localDeveloperName>
+    <masterLabel>Process Booking Payment</masterLabel>
+    <progressIndicatorMessage>Processing booking payment...</progressIndicatorMessage>
+</GenAiFunction>

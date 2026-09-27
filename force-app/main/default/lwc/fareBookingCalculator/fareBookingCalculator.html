@@ -1,0 +1,54 @@
+<template>
+    <lightning-card
+        title="Fare & Booking Calculator"
+        icon-name="standard:orders">
+
+        <div class="slds-p-around_medium">
+
+            <lightning-input
+                type="number"
+                label="Base Fare"
+                value={baseFare}
+                min="0"
+                step="0.01"
+                onchange={handleBaseFareChange}>
+            </lightning-input>
+
+            <lightning-combobox
+                class="slds-m-top_medium"
+                label="Passenger Type"
+                value={passengerType}
+                options={passengerTypeOptions}
+                onchange={handlePassengerTypeChange}>
+            </lightning-combobox>
+
+            <div class="fare-summary slds-m-top_large">
+
+                <p>
+                    <strong>Base Fare:</strong>
+                    ₹{baseFare}
+                </p>
+
+                <p>
+                    <strong>Passenger Type:</strong>
+                    {passengerType}
+                </p>
+
+                <p>
+                    <strong>Tax:</strong>
+                    ₹{taxAmount}
+                </p>
+
+                <hr />
+
+                <p class="total">
+                    <strong>Total Fare:</strong>
+                    ₹{totalFare}
+                </p>
+
+            </div>
+
+        </div>
+
+    </lightning-card>
+</template>
