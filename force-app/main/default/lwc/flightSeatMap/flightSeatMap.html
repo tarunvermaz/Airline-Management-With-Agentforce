@@ -2,34 +2,23 @@
     <lightning-card title="Flight Seat Map" icon-name="standard:flight">
         <div class="slds-p-around_medium">
             <div class="slds-grid slds-wrap slds-gutters slds-m-bottom_medium">
-                
+
                 <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2">
-                    <lightning-input
-                        type="text"
-                        label="Flight Number"
-                        value={flightNumber}
+                    <lightning-input type="text" label="Flight Number" value={flightNumber}
                         onchange={handleFlightChange}>
                     </lightning-input>
                 </div>
 
                 <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2">
-                    <lightning-input
-                        type="text"
-                        label="Selected Seat"
-                        value={selectedSeat}
-                        readonly>
+                    <lightning-input type="text" label="Selected Seat" value={selectedSeat} readonly>
                     </lightning-input>
                 </div>
             </div>
 
             <div class="seat-map">
                 <template for:each={seatList} for:item="seat">
-                    <button
-                        key={seat.number}
-                        class={seat.cssClass}
-                        data-seat={seat.number}
-                        onclick={handleSeatSelection}
-                        disabled={seat.occupied}>
+                    <button key={seat.number} class={seat.cssClass} data-seat={seat.number}
+                        onclick={handleSeatSelection} disabled={seat.occupied}>
                         {seat.number}
                     </button>
                 </template>
