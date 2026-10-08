@@ -1,7 +1,8 @@
 public class BookingTriggerHandler {
     
     public static void beforeInsert(List<Booking__c> newBookings) {       
-        for (Booking__c booking : newBookings) {System.debug('Processing new booking: ' + booking.Name);
+        for (Booking__c booking : newBookings) {
+            System.debug('Processing new booking: ' + booking.Name);
         }
     } 
     public static void beforeUpdate(List<Booking__c> newBookings, Map<Id, Booking__c> oldBookings){        
