@@ -1,29 +1,19 @@
 <template>
-    <lightning-card
-        title="Passenger Travel Timeline"
-        icon-name="standard:contact">
+    <lightning-card title="Passenger Travel Timeline" icon-name="standard:contact">
 
         <div class="slds-p-around_medium">
 
-            <lightning-input
-                type="text"
-                label="Passenger ID"
-                placeholder="Enter Passenger Record Id"
-                value={passengerId}
-                onchange={handlePassengerIdChange}>
+            <lightning-input type="text" label="Passenger ID" placeholder="Enter Passenger Record Id"
+                value={passengerId} onchange={handlePassengerIdChange}>
             </lightning-input>
 
             <template if:true={hasBookings}>
 
                 <div class="timeline slds-m-top_large">
 
-                    <template
-                        for:each={timelineBookings}
-                        for:item="booking">
+                    <template for:each={timelineBookings} for:item="booking">
 
-                        <div
-                            key={booking.id}
-                            class="timeline-item">
+                        <div key={booking.id} class="timeline-item">
 
                             <div class="timeline-marker"></div>
 
